@@ -1,0 +1,17 @@
+{
+    "require": {
+        "twig/twig": "^3.3",
+        "php": "^8.1"
+    },
+    "autoload": { 
+        "psr-4":{
+            "Product\\control\\act\\" : "controller/",
+            "Product\\control\\actc\\" : "controller/",
+            "Product\\mod\\data\\": "model/",
+            "Product\\start\\":"daisy/"
+        }
+    }
+
+            
+
+}

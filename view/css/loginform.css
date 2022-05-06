@@ -1,0 +1,25 @@
+body {
+    font-family: Calibri,Helvetica,sans-serif;
+    }
+button{
+    background-color: #336BFF;
+    width: 100%;
+    color: black;
+    padding: 6px;
+    margin: 10px 0px;
+    border: none;
+    cursor: pointer;
+}
+form{
+    border: 5px solid #f1f1f1;
+    padding: 10px;
+    margin: 90px 500px;
+    width: 15%;
+}  
+h2{
+    padding: 8px;
+    text-align: center;
+}  
+p{
+    text-align:center;
+}  
