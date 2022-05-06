@@ -1,0 +1,24 @@
+<div class="container my-3">
+    <table id="user_table" class="table table-striped container">
+           <thead>
+                <tr>
+                    <th>Doc ID.</th>
+                    <th>Doc Name</th> 
+                    <th>Action</th>
+                    <th>Action</th>   
+                </tr>
+            </thead>
+            <tbody> 
+                {% for data in arr %}
+                <tr>
+                    <td>{{ data.docid }}</td>
+                    <td>{{ data.docname }}</td>
+                    <td><a href="../../controller/actions.php?docrequest=<?php echo 'update' ?>"><b>Update</b></a></td>
+                    <td><a href="../../controller/actions.php?docrequest=<?php echo 'delete' ?>"><b>Delete</b></a></td>
+
+                </tr>
+                {% endfor %}
+
+            </tbody>
+    </table>
+</div>

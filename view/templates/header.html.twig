@@ -1,0 +1,54 @@
+<html>
+    <title> Dashboard </title>
+    <head>
+        <style>
+            ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: lightblue;
+            }
+
+            li {
+            float: right;
+            display : inline;
+            }
+
+            li a {
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #FF0000;
+            }
+
+            .active {
+            background-color: #00CC33	;
+            }
+
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body background="../view/images/image7.png">  
+        <ul>
+            <li><a href="dashboard.php"><b>Home</b></a></li>
+            <li><a href="dashboard.php?request=<?php echo 'userprofile' ?>"><b>User Profile</b></a></li>
+            <li><a href="dashboard.php?request=<?php echo 'users' ?>"><b>Users</b></a></li>
+            <li><a href="dashboard.php?request=<?php echo 'documents' ?>"><b>Documents</b></a></li>
+            <li><a href="loginregister/logout.php"><b>Logout</b></a></li>
+            <li style="float:left; padding: 14px 16px; display: block;"><b>Welcome</b> </li>
+        </ul>
+
+        
+    </body>
+</html>
+
+           

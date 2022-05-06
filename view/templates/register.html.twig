@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"> </script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
+                
+        <title> Register </title>
+        <h2>Registration Form </h2>
+
+        <style>
+            Body{
+                font-family: Calibri,Helvetica,sans-serif;
+                }
+            button{
+                background-color: #336BFF;
+                width: 40%;
+                color: black;
+                padding: 6px;
+                border: none;
+                cursor: pointer;
+                margin-left: 50px;
+            }
+            form{
+                border: 5px solid #f1f1f1;
+                padding: 20px;
+                margin-left: auto;
+                margin-right: auto;
+                text-align:left;
+                width: 13%;
+            }  
+            h2{
+                padding: 8px;
+                text-align: center;
+            }     
+            p{
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body background="../../view/images/register.png">
+            <p>    Please fill in this form to create an account. </p>
+            <form action="../../controller/actions.php" method="post" id="registerform" onsubmit="return validateform()">
+                <label> Name:  </label> <br>
+                    <input type="text" name="name" id="name">
+                <br><br>
+                <label> Email address:  </label> <br>
+                    <input type="text" name="email" id="email">
+                <br><br>
+                <label> Password:  </label> <br>
+                    <input type="password" name="password" id="password">
+                <br><br>
+                <label> Company:  </label> <br>
+                    <input type="text" name="company" id="company">
+                <br><br>
+                <label> Contact Number:  </label> <br>
+                    <input type="text" name="contact" id="contact">
+                <br><br>
+                
+                <button type="submit" name="registersubmit" > SUBMIT </button>
+                
+            <script>
+            $(document).ready(function(){
+                $("#registerform").validate(
+                { 
+                    rules: 
+                    {
+                        name : 
+                        {
+                            required : true,
+                            minlength : 3,
+                            maxlength : 20
+                        },
+                        email : 
+                        {
+                            required : true,
+                            email : true,
+                            maxlength : 50,
+                            minlength : 3
+                        },
+                        password : 
+                        {
+                            required : true,
+                            minlength : 3, 
+                            maxlength : 25
+                        },
+                        company : 
+                        {
+                            required : true,
+                            minlength : 3,
+                            maxlength : 25 
+                        },
+                        contact : 
+                        {
+                            required : true,
+                            maxlength : 10, 
+                            minlength : 10,
+                            number : true
+                        },
+                    },
+                    messages: 
+                    {
+                        name :   
+                        {
+                            required : "Please enter your name",
+                            minlength : "Name should be atleast 3 characters" 
+                        },   
+                        email :   
+                        {
+                            required : "Please enter your email address",
+                            email : "Please enter a valid email address", 
+                            minlength : "Email should be atleast 3 characters" 
+                        },
+                        password :   
+                        {
+                            required : "Please enter a password ",
+                            minlength : "Password should be atleast 3 characters" 
+                        },
+                            
+                        company :   
+                        {
+                            required : "Please enter your current company",
+                            minlength : "Company name should be atleast 3 characters" 
+                        },
+                        contact :   
+                        {
+                            required : "Please enter your contact number",
+                            minlength : "Number should be of 10 digits" 
+                        },
+                    },
+                        
+                        submitHandler: function(registerform)
+                        {
+                            registerform.submit();
+                        }
+                 });
+            });
+
+        </script>
+        </body>
+    </html>
+
+            

@@ -1,0 +1,47 @@
+<html>
+    <head>
+    <title> Login </title>
+    <h2> Login Form </h2>
+    <style>
+        body {
+            font-family: Calibri,Helvetica,sans-serif;
+            }
+        button{
+            background-color: #336BFF;
+            width: 100%;
+            color: black;
+            padding: 6px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+        }
+        form{
+            border: 5px solid #f1f1f1;
+            padding: 10px;
+            margin: 90px 500px;
+            width: 15%;
+        }  
+        h2{
+            padding: 8px;
+            text-align: center;
+        }  
+        p{
+            text-align:center;
+        }  
+    </style>
+    </head>
+    <body background="view/images/login.png">
+        <h4 style="text-align:center"> Hello there!! {{ arr }} </h4>
+        <form action="controller/actions.php" method="post" name="loginform">
+            <label> Email: </label>
+            <input type="text" name="email" required>
+            <br><br>
+            <label> Password: </label>
+            <input type="password"  name="password" required>
+            <br><br>
+            <button type="submit" name="loginsubmit" > SUBMIT </button>
+        </form>
+        <p> If you don't have an account, create here </p>
+        <p style="background-color: #336BFF; margin-left:auto; margin-right:auto; width:10%;"> <a href="view/templates/register.html.twig" style="color:black;">REGISTER</a> </p>
+    </body>
+</html>
