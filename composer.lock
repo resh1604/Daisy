@@ -5,7 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "edc69a345928daf091447c07fda4baa8",
-    "packages": [
+    "packages":  [
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.25.0",

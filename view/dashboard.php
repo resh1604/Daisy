@@ -1,4 +1,5 @@
 <?php
+namespace Product\view\dash;
 
 session_start();
 

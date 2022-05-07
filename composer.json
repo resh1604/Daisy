@@ -8,7 +8,8 @@
             "Product\\control\\act\\" : "controller/",
             "Product\\control\\actc\\" : "controller/",
             "Product\\mod\\data\\": "model/",
-            "Product\\start\\":"daisy/"
+            "Product\\start\\":"daisy/",
+            "Product\\view\\dash\\" : "view/"
         }
     }
 
