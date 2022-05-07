@@ -19,14 +19,14 @@
                     <td>{{ data.email }}</td>
                     <td>{{ data.company }}</td>
                     <td>{{ data.contact }}</td>
-                    <td><a href="../../controller/actions.php?userrequest= <?php echo 'update' ?>"><b>Update</b></a></td>
-                    <td><a href="../../controller/actions.php?userrequest= <?php echo 'delete' ?>"><b>Delete</b></a></td>
+                    {# <td><a href="../../controller/actions.php?userrequest=<?phpecho 'update'?>"><b>Update</b></a></td>
+                    <td><a href="../../controller/actions.php?userrequest= <?php echo 'delete' ?>"><b>Delete</b></a></td>  #}
+                    <td><a href="../controller/actions.php?updateuserid={{data.userno}}"><b>Update</b></a></td>
+                    <td><a href="../controller/actions.php?deleteuserid={{data.userno}}"><b>Delete</b></a></td>
                 </tr>
                 {% endfor %}
-
             </tbody>
     </table>
-    <td><a href="../../controller/actions.php?userrequest= <?php echo 'update' ?>"><b>Update</b></a></td>
 </div>
 
 

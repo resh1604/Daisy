@@ -26,6 +26,10 @@ if(isset($_GET['request']))
     {
         $dash->opendocumentlist();
     }
+    elseif($req == 'home')    
+    {
+        $dash->displayhomepage();
+    }
 }
 
 
@@ -54,7 +58,6 @@ class dashboard
         $return = $dbobject->selectQueryWithRows($sqlquery);
 
         echo $this->twig->render('userlist.html.twig', ['arr' => $return]);
-
     }
     public function opendocumentlist()
     {
@@ -63,7 +66,11 @@ class dashboard
         $return = $dbobject->selectQueryWithRows($sqlquery);
 
         echo $this->twig->render('documentlist.html.twig', ['arr' => $return]);
-
+    }
+    public function displayhomepage()
+    {
+        $welcome = "hi";
+        echo $this->twig->render('home.html.twig', ['arr' => $welcome]);
     }
 }
 

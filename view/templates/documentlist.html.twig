@@ -1,3 +1,9 @@
+
+<form action="../controller/actions.php" enctype="multipart/form-data" method="post" style="margin-left:400px">
+<b>Select File to Upload to the Database</b>  <input type="file" name="file"> 
+<input type="submit" value="Upload" name="documentsubmit">
+</form>
+
 <div class="container my-3">
     <table id="user_table" class="table table-striped container">
            <thead>
@@ -13,9 +19,8 @@
                 <tr>
                     <td>{{ data.docid }}</td>
                     <td>{{ data.docname }}</td>
-                    <td><a href="../../controller/actions.php?docrequest=<?php echo 'update' ?>"><b>Update</b></a></td>
-                    <td><a href="../../controller/actions.php?docrequest=<?php echo 'delete' ?>"><b>Delete</b></a></td>
-
+                    <td><a href="../controller/actions.php?updatedocid={{data.docid}}"><b>Update</b></a></td>
+                    <td><a href="../controller/actions.php?deletedocid={{data.docid}}"><b>Delete</b></a></td>
                 </tr>
                 {% endfor %}
 

@@ -1,0 +1,41 @@
+<html>
+    <title> Edit </title>
+    <h2 style="margin-left: 500px">Edit User Page </h2>
+    <style>
+        Body {
+            font-family: Calibri,Helvetica,sans-serif;
+            }
+        form{
+            margin-left: 500px;
+            margin-right: auto;
+            text-align:left;
+        }  
+    </style>
+    <body background="../view/images/image7.png">
+    <p style="background-color: #336BFF; width: 5%; position: absolute; top:20px;  right:350px; text-align:center;"> <a href="logout.php" style= "color:black;">Logout</a>
+        {% for data in arr %}
+            <form action="../controller/actions.php" method="post" id="edituserform">
+                <label> UserNumber:  </label> <br>
+                    <input type="text" name="userno" id="userno" value="{{ data.userno}}" >
+                <br><br>    
+                <label> Name:  </label> <br>
+                    <input type="text" name="name" id="name" value="{{ data.name}}" >
+                <br><br>
+                <label> Email address:  </label> <br>
+                    <input type="text" name="email" id="email" value="{{ data.email}}">
+                <br><br>
+                <label> Password:  </label> <br>
+                    <input type="text" name="password" id="password" value="{{ data.password}}">
+                <br><br>
+                <label> Company:  </label> <br>
+                    <input type="text" name="company" id="company" value="{{ data.company}}">
+                <br><br>
+                <label> Contact Number:  </label> <br>
+                    <input type="text" name="contact" id="contact" value="{{ data.contact}}">
+                <br><br>
+                
+                <button type="submit" name="updateusersubmit" style= "color:blue; margin-left:50px"> SUBMIT </button>
+        {% endfor %}        
+        </form>
+        </body>
+</html>

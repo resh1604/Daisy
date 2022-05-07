@@ -33,7 +33,7 @@ class actionscontroller
                 'email'=>$email,
                 'password'=>$password
             ];
-            header('location: ../view/dashboard.php');
+            header('location: ../view/dashboard.php?request=home');
             exit;
         }
     }
@@ -70,11 +70,72 @@ class actionscontroller
         header('location:../../start.php');
     }
 
-    public function updateuser()
+    public function callUserToUpdate($id)
     {
-        
+        $dbobject = new database();
+        $sqlquery = "SELECT * FROM users WHERE userno = '$id'";
+        $return = $dbobject->selectQueryWithRows($sqlquery);
+
+        echo $this->twig->render('updateuser.html.twig', ['arr' => $return] );
     }
 
+    public function updateruser($un, $nm, $em, $pass, $com, $cont)
+    {
+        $dbobject = new database();
+        $sqlQuery = "UPDATE users SET name = '$nm', email = '$em', password = '$pass', company = '$com', contact = '$cont' WHERE userno = '$un' ";
+        $dbobject->updateQuery($sqlQuery);
+
+        header('location: ../view/dashboard.php?request=users');
+        exit;
+    }
+
+    public function callUserToDelete($id)
+    {
+        $dbobject = new database();
+        $sqlquery = "DELETE FROM users WHERE userno = '$id'";
+        $return = $dbobject->DeleteQueryWithUserNo($sqlquery);
+
+        header('location: ../view/dashboard.php?request=users');
+        exit;
+    }
+
+    public function uploadDocument($filepath)
+    {
+        $dbobject = new database();
+        $sqlQuery = "INSERT INTO documents(docname) VALUES ('$filepath')";
+        $return = $dbobject->InsertQuery($sqlQuery);
+
+        header('location:  ../view/dashboard.php?request=documents');
+        exit;
+    }
+
+    public function callDocToUpdate($id)
+    {
+        $dbobject = new database();
+        $sqlquery = "SELECT * FROM documents WHERE docid = '$id'";
+        $return = $dbobject->selectQueryWithRows($sqlquery);
+       
+        echo $this->twig->render('updatedoc.html.twig', ['arr' => $return] );
+    }
+
+    public function updateDocument($docid, $docname)
+    {
+        $dbobject = new database();
+        $sqlQuery = "UPDATE documents SET docname = '$docname' WHERE docid = '$docid' ";
+        $dbobject->updateQuery($sqlQuery);
+
+        header('location: ../view/dashboard.php?request=documents');
+        exit;
+    }
+    public function callDocToDelete($id)
+    {
+        $dbobject = new database();
+        $sqlquery = "DELETE FROM documents WHERE docid = '$id'";
+        $return = $dbobject->DeleteQueryWithUserNo($sqlquery);
+
+        header('location: ../view/dashboard.php?request=documents');
+        exit;
+    }
 }
 
 ?>

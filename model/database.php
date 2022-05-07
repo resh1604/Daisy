@@ -59,4 +59,9 @@ class database
     public function getConn(){
         return $this->conn;
     }
+    public function updateQuery($sqlQuery)
+    {
+        $sql = $sqlQuery;
+        mysqli_query($this->conn,$sql);
+    }
 }

@@ -1,0 +1,26 @@
+<html>
+    <title> Edit </title>
+    <h2>Edit Page </h2>
+    <style>
+        Body {
+            font-family: Calibri,Helvetica,sans-serif;
+            }
+        form{
+            margin-left: auto;
+            margin-right: auto;
+            text-align:left;
+        }  
+    </style>
+    <body background="../view/images/image7.png">
+    {% for data in arr %}
+        <p> <b> Document ID: {{data.docid}} </b></p>
+        <form action="../controller/actions.php?docid={{data.docid}}" enctype="multipart/form-data" method="post">
+        <br>  Select New Document to Upload and Replace: <br> <input type="file" name="newfile"> 
+              <input type="hidden" name="docid" id="docid" value="{{ data.docid }}" >
+                <br><br>    
+            {% endfor %}            
+        <input type="submit" value="Upload" name="newdocumentsubmit">
+        </form>
+        <p style="background-color: #336BFF; width: 5%; position: absolute; top:20px;  right:350px; text-align:center;"> <a href="logout.php" style= "color:black;">Logout</a>
+    </body>
+</html>
