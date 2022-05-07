@@ -2,12 +2,18 @@
 
 session_start();
 
+
+if(!isset($_SESSION['user']))
+{
+    header('location:../start.php');
+    exit;
+}
+
 require  __DIR__ .'/../vendor/autoload.php';
 include 'templates/header.html.twig';
 
 use Product\mod\data\database;
 
-//include 'templates/home.html.twig';
 
 $dash = new dashboard();
 

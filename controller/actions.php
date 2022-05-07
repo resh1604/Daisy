@@ -1,6 +1,7 @@
 <?php
 namespace Product\control\act;
 
+
 require  __DIR__ .'/../vendor/autoload.php';
 use Product\control\actc\actionscontroller;
 

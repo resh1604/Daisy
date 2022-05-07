@@ -1,6 +1,7 @@
 <?php
 namespace Product\mod\data;
 
+
 class database
 {
     public function __construct()

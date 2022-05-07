@@ -1,6 +1,7 @@
 <?php
 namespace Product\control\actc;
 
+
 require  __DIR__ .'/../vendor/autoload.php';
 use Product\mod\data\database;
 
