@@ -14,7 +14,7 @@
     <body background="../view/images/image7.png">
     {% for data in arr %}
         <p style="margin-left: 370px"> <b> Document ID: {{data.docid}} </b></p>
-        <form action="../controller/actions.php?docid={{data.docid}}" enctype="multipart/form-data" method="post">
+        <form action="../controller/documentactions.php?docid={{data.docid}}" enctype="multipart/form-data" method="post">
         <br>  Select New Document to Upload and Replace: <br> <input type="file" name="newfile"> 
               <input type="hidden" name="docid" id="docid" value="{{ data.docid }}" >
                 <br><br>    

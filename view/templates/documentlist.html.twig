@@ -1,5 +1,5 @@
 
-<form action="../controller/actions.php" enctype="multipart/form-data" method="post" style="margin-left:400px">
+<form action="../controller/documentactions.php" enctype="multipart/form-data" method="post" style="margin-left:400px">
 <b>Select File to Upload to the Database</b>  <input type="file" name="file"> 
 <input type="submit" value="Upload" name="documentsubmit">
 </form>
@@ -19,8 +19,8 @@
                 <tr>
                     <td>{{ data.docid }}</td>
                     <td>{{ data.docname }}</td>
-                    <td><a href="../controller/actions.php?updatedocid={{data.docid}}"><b>Update</b></a></td>
-                    <td><a href="../controller/actions.php?deletedocid={{data.docid}}"><b>Delete</b></a></td>
+                    <td><a href="../controller/documentactions.php?updatedocid={{data.docid}}"><b>Update</b></a></td>
+                    <td><a href="../controller/documentactions.php?deletedocid={{data.docid}}"><b>Delete</b></a></td>
                 </tr>
                 {% endfor %}
 

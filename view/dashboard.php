@@ -13,8 +13,9 @@ if(!isset($_SESSION['user']))
 require  __DIR__ .'/../vendor/autoload.php';
 include 'templates/header.html.twig';
 
-use Product\mod\data\database;
 
+use Product\mod\docdata\documentdatabase;
+use Product\mod\userdata\userdatabase;
 
 $dash = new dashboard();
 
@@ -52,25 +53,25 @@ class dashboard
         $email = $_SESSION['user']['email'];
         $password = $_SESSION['user']['password'];
 
-        $dbobject = new database();
+        $userdbobject = new userdatabase();
         $sqlquery = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
-        $return = $dbobject->selectQueryWithRows($sqlquery);
+        $return = $userdbobject->retrieveAllUsers($sqlquery);
 
         echo $this->twig->render('userprofile.html.twig', ['arr' => $return] );
     }
     public function openuserlist()
     {
-        $dbobject = new database();
+        $userdbobject = new userdatabase();
         $sqlquery = "SELECT * FROM users";
-        $return = $dbobject->selectQueryWithRows($sqlquery);
+        $return = $userdbobject->retrieveAllUsers($sqlquery);
 
         echo $this->twig->render('userlist.html.twig', ['arr' => $return]);
     }
     public function opendocumentlist()
     {
-        $dbobject = new database();
+        $docdbobject = new documentdatabase();
         $sqlquery = "SELECT * FROM documents";
-        $return = $dbobject->selectQueryWithRows($sqlquery);
+        $return = $docdbobject->retrieveAllDocs($sqlquery);
 
         echo $this->twig->render('documentlist.html.twig', ['arr' => $return]);
     }

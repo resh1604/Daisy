@@ -1,0 +1,146 @@
+<?php
+namespace Product\control\actc;
+
+
+require  __DIR__ .'/../vendor/autoload.php';
+use Product\mod\data\database;
+use Product\mod\docdata\documentdatabase;
+use Product\mod\userdata\userdatabase;
+
+class actionscontroller
+{
+    public function __construct()
+    {
+        $this->loader = new \Twig\Loader\FilesystemLoader(__DIR__ .'../../view/templates');
+        $this->twig = new \Twig\Environment($this->loader);
+    }
+
+    public function login($em, $pass)
+    {
+        $dbobject = new database();
+        $userdbobject = new userdatabase();
+
+        $email = mysqli_real_escape_string($dbobject->getConn(),$em);
+        $password = mysqli_real_escape_string($dbobject->getConn(),$pass); 
+        
+        $sqlquery = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
+        $return = $userdbobject->retrieveOneUser($sqlquery);
+        // echo "<pre>";
+        // print_r($return);
+        if($return == 0)
+        {
+            echo "Error in Login";
+        }
+        else
+        {           
+            session_start();
+            $_SESSION['user']=[
+                'email'=>$email,
+                'password'=>$password
+            ];
+            header('location: ../view/dashboard.php?request=home');
+            exit;
+        }
+    }
+
+    public function displayloginform()
+    {
+        $welcome = "welcome";
+        echo $this->twig->render('loginform.html.twig', ['arr' => $welcome] );
+    }
+
+    public function registeruser($nm, $em, $pass, $com, $cont)
+    {
+        $userdbobject = new userdatabase();
+        $sqlQuery = "INSERT INTO users (name, email, password, company, contact) VALUES ('$nm','$em', '$pass', '$com', '$cont' )";
+        $return = $userdbobject->insertUser($sqlQuery);
+
+        session_start();
+        $_SESSION['user']=[
+            'name'=>$_POST['name'],
+            'email'=>$_POST['email'],
+            'password'=>$_POST['password'],
+            'company'=>$_POST['company'],
+            'contact'=>$_POST['contact'],
+        ];
+
+        header('location:  ../view/dashboard.php?request=home');
+        exit;
+    }
+
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        header('location:../../start.php');
+    }
+
+    public function callUserToUpdate($id)
+    {
+        $userdbobject = new userdatabase();
+        $sqlquery = "SELECT * FROM users WHERE userno = '$id'";
+        $return = $userdbobject->retrieveAllUsers($sqlquery);
+
+        echo $this->twig->render('updateuser.html.twig', ['arr' => $return] );
+    }
+
+    public function updateruser($un, $nm, $em, $pass, $com, $cont)
+    {
+        $userdbobject = new userdatabase();
+        $sqlQuery = "UPDATE users SET name = '$nm', email = '$em', password = '$pass', company = '$com', contact = '$cont' WHERE userno = '$un' ";
+        $userdbobject->updateUser($sqlQuery);
+
+        header('location: ../view/dashboard.php?request=users');
+        exit;
+    }
+
+    public function callUserToDelete($id)
+    {
+        $userdbobject = new userdatabase();
+        $sqlquery = "DELETE FROM users WHERE userno = '$id'";
+        $return = $userdbobject->deleleUser($sqlquery);
+
+        header('location: ../view/dashboard.php?request=users');
+        exit;
+    }
+
+    public function uploadDocument($filepath)
+    {
+        $docdbobject = new documentdatabase();
+        $sqlQuery = "INSERT INTO documents(docname) VALUES ('$filepath')";
+        $return = $docdbobject->insertDoc($sqlQuery);
+
+        header('location:  ../view/dashboard.php?request=documents');
+        exit;
+    }
+
+    public function callDocToUpdate($id)
+    {
+        $docdbobject = new documentdatabase();
+        $sqlquery = "SELECT * FROM documents WHERE docid = '$id'";
+        $return = $docdbobject->retrieveAllDocs($sqlquery);
+
+        echo $this->twig->render('updatedoc.html.twig', ['arr' => $return] );
+    }
+
+    public function updateDocument($docid, $docname)
+    {
+        $docdbobject = new documentdatabase();
+        $sqlQuery = "UPDATE documents SET docname = '$docname' WHERE docid = '$docid' ";
+        $docdbobject->updateDoc($sqlQuery);
+
+        header('location: ../view/dashboard.php?request=documents');
+        exit;
+    }
+    public function callDocToDelete($id)
+    {
+        $docdbobject = new documentdatabase();
+        $sqlquery = "DELETE FROM documents WHERE docid = '$id'";
+        $return = $docdbobject->deleleDoc($sqlquery);
+
+        header('location: ../view/dashboard.php?request=documents');
+        exit;
+    }
+}
+
+?>

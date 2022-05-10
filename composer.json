@@ -6,8 +6,14 @@
     "autoload": { 
         "psr-4":{
             "Product\\control\\act\\" : "controller/",
+            "Product\\control\\useract\\":"controller/",
+            "Product\\control\\docact\\":"controller/",
             "Product\\control\\actc\\" : "controller/",
+            "Product\\control\\useractc\\": "controller/",
+            "Product\\control\\docactc\\":"controller/",
             "Product\\mod\\data\\": "model/",
+            "Product\\mod\\userdata\\" : "model/",
+            "Product\\mod\\docdata\\" : "model/",
             "Product\\start\\":"daisy/",
             "Product\\view\\dash\\" : "view/"
         }

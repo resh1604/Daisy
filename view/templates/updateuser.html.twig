@@ -14,7 +14,7 @@
     <body background="../view/images/image7.png">
     <p style="background-color: #336BFF; width: 5%; position: absolute; top:20px;  right:350px; text-align:center;"> <a href="../view/loginregister/logout.php" style= "color:black;">Logout</a></p>
         {% for data in arr %}
-            <form action="../controller/actions.php" method="post" id="edituserform">
+            <form action="../controller/useractions.php" method="post" id="edituserform">
                 <label> UserNumber:  </label> <br>
                     <input type="text" name="userno" id="userno" value="{{ data.userno}}" >
                 <br><br>    

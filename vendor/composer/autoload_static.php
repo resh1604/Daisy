@@ -23,8 +23,15 @@ class ComposerStaticInit8477dd24ec125f38c6de9dc9f2f9cd3f
         ),
         'P' => 
         array (
+            'Product\\view\\dash\\' => 18,
             'Product\\start\\' => 14,
+            'Product\\mod\\userdata\\' => 21,
+            'Product\\mod\\docdata\\' => 20,
             'Product\\mod\\data\\' => 17,
+            'Product\\control\\useractc\\' => 25,
+            'Product\\control\\useract\\' => 24,
+            'Product\\control\\docactc\\' => 24,
+            'Product\\control\\docact\\' => 23,
             'Product\\control\\actc\\' => 21,
             'Product\\control\\act\\' => 20,
         ),
@@ -43,13 +50,41 @@ class ComposerStaticInit8477dd24ec125f38c6de9dc9f2f9cd3f
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Product\\view\\dash\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/view',
+        ),
         'Product\\start\\' => 
         array (
             0 => __DIR__ . '/../..' . '/daisy',
         ),
+        'Product\\mod\\userdata\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/model',
+        ),
+        'Product\\mod\\docdata\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/model',
+        ),
         'Product\\mod\\data\\' => 
         array (
             0 => __DIR__ . '/../..' . '/model',
+        ),
+        'Product\\control\\useractc\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
+        ),
+        'Product\\control\\useract\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
+        ),
+        'Product\\control\\docactc\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
+        ),
+        'Product\\control\\docact\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
         ),
         'Product\\control\\actc\\' => 
         array (
