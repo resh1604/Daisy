@@ -2,6 +2,7 @@
 namespace Product\control\docactc;
 
 use Product\mod\docdata\documentdatabase;
+use Product\mod\userdata\userdatabase;
 
 require  __DIR__ .'/../vendor/autoload.php';
 
@@ -13,10 +14,10 @@ class documentactionscontroller
         $this->twig = new \Twig\Environment($this->loader);
     }
 
-    public function uploadDocument($filepath)
+    public function uploadDocument($filepath,$id)
     {
         $docdbobject = new documentdatabase();
-        $sqlQuery = "INSERT INTO documents(docname) VALUES ('$filepath')";
+        $sqlQuery = "INSERT INTO documents(docname,userno) VALUES ('$filepath','$id')";
         $return = $docdbobject->insertDoc($sqlQuery);
 
         header('location:  ../view/dashboard.php?request=documents');
@@ -50,6 +51,12 @@ class documentactionscontroller
         header('location: ../view/dashboard.php?request=documents');
         exit;
     }
+    public function loaduploadDocumentPage($id)
+    {
+        $userid = $id;
+        echo $this->twig->render('uploaddocument.html.twig', ['arr' => $userid] );
+    }
+    
 }
 
 

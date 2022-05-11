@@ -40,6 +40,16 @@ class useractionscontroller
         header('location: ../view/dashboard.php?request=users');
         exit;
     }
+    public function getuserno()
+    {
+        $email = $_SESSION['user']['email'];
+        $password = $_SESSION['user']['password'];
+
+        $userdbobject = new userdatabase();
+        $sqlquery = "SELECT * FROM users WHERE uemail = '$email' and upassword = '$password'";
+        return $userdbobject->retrieveAllUsers($sqlquery);
+
+    }
 }
 
 

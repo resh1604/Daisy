@@ -13,6 +13,8 @@ if(!isset($_SESSION['user']))
 require  __DIR__ .'/../vendor/autoload.php';
 include 'templates/header.html.twig';
 
+use Product\control\docactc\documentactionscontroller;
+use Product\control\useractc\useractionscontroller;
 use Product\mod\companydata\companydatabase;
 use Product\mod\docdata\documentdatabase;
 use Product\mod\userdata\userdatabase;
@@ -52,6 +54,7 @@ class dashboard
         $this->loader = new \Twig\Loader\FilesystemLoader(__DIR__ .'/templates/');
         $this->twig = new \Twig\Environment($this->loader);
     }
+    
     public function displayuserprofile()
     {
         $email = $_SESSION['user']['email'];
@@ -63,6 +66,7 @@ class dashboard
 
         echo $this->twig->render('userprofile.html.twig', ['arr' => $return] );
     }
+
     public function openuserlist()
     {
         $userdbobject = new userdatabase();
@@ -71,19 +75,27 @@ class dashboard
 
         echo $this->twig->render('userlist.html.twig', ['arr' => $return]);
     }
+
     public function opendocumentlist()
     {
+        //FOR USERNO
+        $useract = new useractionscontroller();
+        $returnuserrow = $useract->getuserno();
+
+        //FOR DOCUMENT LIST
         $docdbobject = new documentdatabase();
         $sqlquery = "SELECT * FROM documents";
-        $return = $docdbobject->retrieveAllDocs($sqlquery);
+        $returnlist = $docdbobject->retrieveAllDocs($sqlquery);
 
-        echo $this->twig->render('documentlist.html.twig', ['arr' => $return]);
+        echo $this->twig->render('documentlist.html.twig', ['arr' => $returnlist, 'arr2' => $returnuserrow]);
     }
+
     public function displayhomepage()
     {
         $welcome = "hi";
         echo $this->twig->render('home.html.twig', ['arr' => $welcome]);
     }
+
     public function opencompanylist()
     {
         $comdbobject = new companydatabase();
@@ -93,6 +105,9 @@ class dashboard
         echo $this->twig->render('companylist.html.twig', ['arr' => $return]);
     }
 }
+
+
+
 
 ?>
 

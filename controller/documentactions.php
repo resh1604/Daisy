@@ -9,11 +9,12 @@ $docactionobj = new documentactionscontroller();
 
 if(isset($_POST['documentsubmit']))
 {  
+    $id = $_POST['uid'];
     $filename = $_FILES['file']['name'];
     $tmpfilename = $_FILES['file']['tmp_name'];
     $filepath = "../view/uploads/" . $filename;
 
-    $docactionobj->uploadDocument($filepath);
+    $docactionobj->uploadDocument($filepath,$id);
     
 }
 
@@ -42,4 +43,9 @@ if(isset($_GET['deletedocid']))
     $docactionobj->callDocToDelete($id);
 }
 
+if(isset($_GET['userno']))
+{  
+    $id = $_GET['userno'];
+    $docactionobj->loaduploadDocumentPage($id);
+}
 ?>

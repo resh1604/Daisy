@@ -1,0 +1,12 @@
+<html>
+    <body background="../view/images/image7.png">
+
+        {{arr}}
+        <form action="../controller/documentactions.php" enctype="multipart/form-data" method="post" style="margin-left:400px; margin-top:200px;">
+        <b><h2>Select File to Upload to the Database</h2></b> <br> 
+        <input type="file" name="file"> <br><br> <br>
+        <input type="hidden" name="uid" id="uid" value="{{ arr }}" >
+        <input type="submit" value="Upload" name="documentsubmit">
+        </form>
+    </body>
+</html>
