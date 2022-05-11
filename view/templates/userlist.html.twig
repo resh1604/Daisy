@@ -15,12 +15,10 @@
                 {% for data in arr %}
                 <tr>
                     <td>{{ data.userno }}</td>
-                    <td>{{ data.name }}</td>
-                    <td>{{ data.email }}</td>
-                    <td>{{ data.company }}</td>
-                    <td>{{ data.contact }}</td>
-                    {# <td><a href="../../controller/actions.php?userrequest=<?phpecho 'update'?>"><b>Update</b></a></td>
-                    <td><a href="../../controller/actions.php?userrequest= <?php echo 'delete' ?>"><b>Delete</b></a></td>  #}
+                    <td>{{ data.uname }}</td>
+                    <td>{{ data.uemail }}</td>
+                    <td><a href="../controller/companyactions.php?loadcid={{data.cid}}"><b>{{ data.cid }}</b></a></td>
+                    <td>{{ data.ucontact }}</td>
                     <td><a href="../controller/useractions.php?updateuserid={{data.userno}}"><b>Update</b></a></td>
                     <td><a href="../controller/useractions.php?deleteuserid={{data.userno}}"><b>Delete</b></a></td>
                 </tr>

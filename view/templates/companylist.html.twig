@@ -1,0 +1,32 @@
+<div class="container my-3">
+    <table id="user_table" class="table table-striped container">
+            <thead>
+                <tr>
+                    <th>CID</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>No.OfEmployees</th>             
+                    <th>Action</th>       
+                </tr>
+            </thead>
+            <tbody> 
+                {% for data in arr %}
+                <tr>
+                    <td><b>{{ data.cid }}</b></td>
+                    <td>{{ data.cname }}</td>
+                    <td>{{ data.ccity }}</td>
+                    <td>{{ data.cemp }}</td>
+                    <td><a href="../controller/companyactions.php?updatecid={{data.cid}}"><b>Update</b></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+

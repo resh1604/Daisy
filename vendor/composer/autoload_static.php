@@ -28,10 +28,13 @@ class ComposerStaticInit8477dd24ec125f38c6de9dc9f2f9cd3f
             'Product\\mod\\userdata\\' => 21,
             'Product\\mod\\docdata\\' => 20,
             'Product\\mod\\data\\' => 17,
+            'Product\\mod\\companydata\\' => 24,
             'Product\\control\\useractc\\' => 25,
             'Product\\control\\useract\\' => 24,
             'Product\\control\\docactc\\' => 24,
             'Product\\control\\docact\\' => 23,
+            'Product\\control\\comactc\\' => 24,
+            'Product\\control\\comact\\' => 23,
             'Product\\control\\actc\\' => 21,
             'Product\\control\\act\\' => 20,
         ),
@@ -70,6 +73,10 @@ class ComposerStaticInit8477dd24ec125f38c6de9dc9f2f9cd3f
         array (
             0 => __DIR__ . '/../..' . '/model',
         ),
+        'Product\\mod\\companydata\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/model',
+        ),
         'Product\\control\\useractc\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controller',
@@ -83,6 +90,14 @@ class ComposerStaticInit8477dd24ec125f38c6de9dc9f2f9cd3f
             0 => __DIR__ . '/../..' . '/controller',
         ),
         'Product\\control\\docact\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
+        ),
+        'Product\\control\\comactc\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
+        ),
+        'Product\\control\\comact\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controller',
         ),

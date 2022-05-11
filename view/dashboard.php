@@ -13,7 +13,7 @@ if(!isset($_SESSION['user']))
 require  __DIR__ .'/../vendor/autoload.php';
 include 'templates/header.html.twig';
 
-
+use Product\mod\companydata\companydatabase;
 use Product\mod\docdata\documentdatabase;
 use Product\mod\userdata\userdatabase;
 
@@ -38,6 +38,10 @@ if(isset($_GET['request']))
     {
         $dash->displayhomepage();
     }
+    elseif($req == 'companies')    
+    {
+        $dash->opencompanylist();
+    }
 }
 
 
@@ -54,7 +58,7 @@ class dashboard
         $password = $_SESSION['user']['password'];
 
         $userdbobject = new userdatabase();
-        $sqlquery = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
+        $sqlquery = "SELECT * FROM users WHERE uemail = '$email' and upassword = '$password'";
         $return = $userdbobject->retrieveAllUsers($sqlquery);
 
         echo $this->twig->render('userprofile.html.twig', ['arr' => $return] );
@@ -79,6 +83,14 @@ class dashboard
     {
         $welcome = "hi";
         echo $this->twig->render('home.html.twig', ['arr' => $welcome]);
+    }
+    public function opencompanylist()
+    {
+        $comdbobject = new companydatabase();
+        $sqlquery = "SELECT * FROM company";
+        $return = $comdbobject->retrieveAllCompanies($sqlquery);
+
+        echo $this->twig->render('companylist.html.twig', ['arr' => $return]);
     }
 }
 

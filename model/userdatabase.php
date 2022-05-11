@@ -37,7 +37,7 @@ class userdatabase
         }
     }
 
-    public function deleleUser(string $sqlQuery) : bool
+    public function deleteUser(string $sqlQuery) : bool
     {
         $db = new database();
 

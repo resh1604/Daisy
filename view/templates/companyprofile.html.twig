@@ -1,0 +1,14 @@
+<html>
+    <title> Company Profile </title>
+    <body background="../view/images/image7.png"> 
+        <h1 style="margin-left: 620px; margin-top:50px;"> <b> <u>Company Profile </u> </b> </h1>
+        <div style="margin-left: 620px; margin-top:80px;">
+                    {% for user in arr %}
+                    <h2 style="text-align: left;"><b>Company ID : </b>{{ user.cid }}</h2> <br>
+                    <h2 style="text-align: left;"><b>Company Name :  </b>{{ user.cname }}</h2> <br>
+                    <h2 style="text-align: left;"><b>Company City : </b>{{ user.ccity }} </h2> <br>
+                    <h2 style="text-align: left;"><b>No. of employees : </b>{{ user.cemp }} </h2> <br>
+                    {% endfor %}
+    </body>
+</html>
+

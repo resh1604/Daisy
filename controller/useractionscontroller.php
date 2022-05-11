@@ -24,7 +24,7 @@ class useractionscontroller
     public function updateruser($un, $nm, $em, $pass, $com, $cont)
     {
         $userdbobject = new userdatabase();
-        $sqlQuery = "UPDATE users SET name = '$nm', email = '$em', password = '$pass', company = '$com', contact = '$cont' WHERE userno = '$un' ";
+        $sqlQuery = "UPDATE users SET uname = '$nm', uemail = '$em', upassword = '$pass', cid = '$com', ucontact = '$cont' WHERE userno = '$un' ";
         $userdbobject->updateUser($sqlQuery);
 
         header('location: ../view/dashboard.php?request=users');
@@ -35,7 +35,7 @@ class useractionscontroller
     {
         $userdbobject = new userdatabase();
         $sqlquery = "DELETE FROM users WHERE userno = '$id'";
-        $return = $userdbobject->deleleUser($sqlquery);
+        $return = $userdbobject->deleteUser($sqlquery);
 
         header('location: ../view/dashboard.php?request=users');
         exit;

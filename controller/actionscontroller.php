@@ -23,7 +23,7 @@ class actionscontroller
         $email = mysqli_real_escape_string($dbobject->getConn(),$em);
         $password = mysqli_real_escape_string($dbobject->getConn(),$pass); 
         
-        $sqlquery = "SELECT * FROM users WHERE email = '$email' and password = '$password'";
+        $sqlquery = "SELECT * FROM users WHERE uemail = '$email' and upassword = '$password'";
         $return = $userdbobject->retrieveOneUser($sqlquery);
         // echo "<pre>";
         // print_r($return);
@@ -52,7 +52,7 @@ class actionscontroller
     public function registeruser($nm, $em, $pass, $com, $cont)
     {
         $userdbobject = new userdatabase();
-        $sqlQuery = "INSERT INTO users (name, email, password, company, contact) VALUES ('$nm','$em', '$pass', '$com', '$cont' )";
+        $sqlQuery = "INSERT INTO users (uname, uemail, upassword, cid, ucontact) VALUES ('$nm','$em', '$pass', '$com', '$cont' )";
         $return = $userdbobject->insertUser($sqlQuery);
 
         session_start();

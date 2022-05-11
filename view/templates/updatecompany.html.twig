@@ -1,0 +1,35 @@
+<html>
+    <title> Edit </title>
+    <h2 style="margin-left: 500px">Edit Company Details </h2>
+    <style>
+        Body {
+            font-family: Calibri,Helvetica,sans-serif;
+            }
+        form{
+            margin-left: 500px;
+            margin-right: auto;
+            text-align:left;
+        }  
+    </style>
+    <body background="../view/images/image7.png">
+    <p style="background-color: #336BFF; width: 5%; position: absolute; top:20px;  right:350px; text-align:center;"> <a href="../view/loginregister/logout.php" style= "color:black;">Logout</a></p>
+        {% for data in arr %}
+            <form action="../controller/companyactions.php" method="post" id="editcompanyform">
+                <label> Company ID:  </label> <br>
+                    <input type="text" name="cid" id="cid" value="{{ data.cid}}" >
+                <br><br>    
+                <label> Company Name:  </label> <br>
+                    <input type="text" name="cname" id="cname" value="{{ data.cname}}" >
+                <br><br>
+                <label> Company City:  </label> <br>
+                    <input type="text" name="ccity" id="ccity" value="{{ data.ccity}}">
+                <br><br>
+                <label> Number of employees:  </label> <br>
+                    <input type="text" name="cemp" id="cemp" value="{{ data.cemp}}">
+                <br><br>
+                
+                <button type="submit" name="updatecompanysubmit" style= "color:blue; margin-left:50px"> SUBMIT </button>
+        {% endfor %}        
+        </form>
+        </body>
+</html>

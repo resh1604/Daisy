@@ -1,6 +1,6 @@
 <html>
     <title> Edit </title>
-    <h2 style="margin-left: 500px">Edit User Page </h2>
+    <h2 style="margin-left: 500px">Edit User Details </h2>
     <style>
         Body {
             font-family: Calibri,Helvetica,sans-serif;
@@ -19,19 +19,19 @@
                     <input type="text" name="userno" id="userno" value="{{ data.userno}}" >
                 <br><br>    
                 <label> Name:  </label> <br>
-                    <input type="text" name="name" id="name" value="{{ data.name}}" >
+                    <input type="text" name="name" id="name" value="{{ data.uname}}" >
                 <br><br>
                 <label> Email address:  </label> <br>
-                    <input type="text" name="email" id="email" value="{{ data.email}}">
+                    <input type="text" name="email" id="email" value="{{ data.uemail}}">
                 <br><br>
                 <label> Password:  </label> <br>
-                    <input type="text" name="password" id="password" value="{{ data.password}}">
+                    <input type="text" name="password" id="password" value="{{ data.upassword}}">
                 <br><br>
                 <label> Company:  </label> <br>
-                    <input type="text" name="company" id="company" value="{{ data.company}}">
+                    <input type="text" name="company" id="company" value="{{ data.cid}}">
                 <br><br>
                 <label> Contact Number:  </label> <br>
-                    <input type="text" name="contact" id="contact" value="{{ data.contact}}">
+                    <input type="text" name="contact" id="contact" value="{{ data.ucontact}}">
                 <br><br>
                 
                 <button type="submit" name="updateusersubmit" style= "color:blue; margin-left:50px"> SUBMIT </button>
