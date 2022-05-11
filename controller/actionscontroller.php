@@ -21,7 +21,7 @@ class actionscontroller
         $userdbobject = new userdatabase();
 
         $email = mysqli_real_escape_string($dbobject->getConn(),$em);
-        $password = mysqli_real_escape_string($dbobject->getConn(),$pass); 
+        $password = mysqli_real_escape_string($dbobject->getConn(),MD5($pass)); 
         
         $sqlquery = "SELECT * FROM users WHERE uemail = '$email' and upassword = '$password'";
         $return = $userdbobject->retrieveOneUser($sqlquery);
@@ -52,7 +52,7 @@ class actionscontroller
     public function registeruser($nm, $em, $pass, $com, $cont)
     {
         $userdbobject = new userdatabase();
-        $sqlQuery = "INSERT INTO users (uname, uemail, upassword, cid, ucontact) VALUES ('$nm','$em', '$pass', '$com', '$cont' )";
+        $sqlQuery = "INSERT INTO users (uname, uemail, upassword, cid, ucontact) VALUES ('$nm','$em', MD5('$pass'), '$com', '$cont' )";
         $return = $userdbobject->insertUser($sqlQuery);
 
         session_start();
@@ -64,8 +64,10 @@ class actionscontroller
             'contact'=>$_POST['contact'],
         ];
 
-        header('location:  ../view/dashboard.php?request=home');
+        header('location: ../start.php');
         exit;
+        // header('location: ../view/dashboard.php');
+        // exit;
     }
 
     public function logout()

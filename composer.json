@@ -20,8 +20,8 @@
             "Product\\start\\":"daisy/",
             "Product\\view\\dash\\" : "view/"
         }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.6"
     }
-
-            
-
 }
